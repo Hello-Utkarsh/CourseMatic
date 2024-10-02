@@ -1,5 +1,5 @@
 import React from 'react'
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import { FFmpeg } from "@ffmpeg/ffmpeg";
 import { fetchFile, toBlobURL } from "@ffmpeg/util";
@@ -215,14 +215,14 @@ const Editor = () => {
   }, [])
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#000000] px-2">
       {/* TOOLBAR  */}
-      <div className="h-8 bg-zinc-300">
+      <div className="h-8 flex justify-center bg-[#111111] text-white">
         <input type="file" accept="video/*" onChange={handleFileUpload} />
       </div>
 
       {/* VIDEO PLAYER */}
-      <div className="flex-1 bg-zinc-900">
+      <div className="flex-1 bg-[#1F2937]">
         {videoSrc && (
           <ReactPlayer
             ref={playerRef}
@@ -250,7 +250,7 @@ const Editor = () => {
 
       {/* TIMELINE */}
 
-      <div className="flex px-1 min-h-16 border border-black rounded-md bg-slate-100 my-3 overflow-x-auto relative items-center">
+      <div className="flex px-1 min-h-16 border border-black rounded-md bg-[#1F2937] my-3 overflow-x-auto relative items-center">
         {/* the red pointer on timeline */}
         {playerRef.current && <div className={`h-11 bg-red-500 w-[2.5px] rounded-md z-10 absolute`} style={{ left: `${getTotalDur()}px` }} />}
 
@@ -265,19 +265,19 @@ const Editor = () => {
       </div>
 
       {/* CONTROLS */}
-      <div className="h-8 bg-zinc-300 space-x-4">
-        <button onClick={handlePlayPause}>{playing ? "Pause" : "Play"}</button>
-        <button onClick={handleLoop}>{loop ? "Unloop" : "Loop"}</button>
-        <button onClick={() => handlePlaybackRateChange(2)}>
+      <div className="py-2 rounded-lg flex justify-center bg-[#1F2937] space-x-4">
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={handlePlayPause}>{playing ? "Pause" : "Play"}</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={handleLoop}>{loop ? "Unloop" : "Loop"}</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={() => handlePlaybackRateChange(2)}>
           Fast Forward
         </button>
-        <button onClick={() => handlePlaybackRateChange(1)}>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={() => handlePlaybackRateChange(1)}>
           Normal Speed
         </button>
-        <button onClick={handleFullscreen}>Fullscreen</button>
-        <button onClick={trim}>Trim</button>
-        <button onClick={split}>Split</button>
-        <button onClick={deleteVid}>Delete</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={handleFullscreen}>Fullscreen</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={trim}>Trim</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={split}>Split</button>
+        <button className='px-2 py-1 rounded-lg bg-[#FACC15]' onClick={deleteVid}>Delete</button>
         <input
           type="range"
           min="0"
