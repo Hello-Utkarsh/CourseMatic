@@ -4,20 +4,20 @@ import App from "./App.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Dashboard from "./components/Dashboard.tsx";
 import SignUp from './components/Authentication/SignUp';
 import Login from './components/Authentication/Login';
 import Editor from "./components/Editor.tsx"
 
 //import Project from "./components/Project.tsx";
 //import VideoToAudioConverter from "./components/VideoToAudio.tsx";
+import Dashboard from "./components/Dashboard.tsx";
+import VideoToAudioConverter from "./components/VideoToAudio.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
-
   {
     path: "/signup",
     element: <SignUp/>,
@@ -37,9 +37,11 @@ const router = createBrowserRouter([
      path:"/editor/:courseId",
      element:<Editor />
 
-  }
-  
-  
+  },
+  {
+    path: "/audio",
+    element: <VideoToAudioConverter />,
+  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
@@ -47,4 +49,3 @@ createRoot(document.getElementById("root")!).render(
     <RouterProvider router={router} />
   </StrictMode>,
 );
-
