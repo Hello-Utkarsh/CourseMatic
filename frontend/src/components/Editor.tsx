@@ -70,8 +70,8 @@ const Editor = () => {
       if (video) {
         console.log("object")
         const dummydur: any[] = await Promise.all(
-          video.map(async (x: any, index: number) => {
-            return new Promise<number>((resolve, reject) => {
+          video.map(async (x: any) => {
+            return new Promise<number>((resolve) => {
               const videoElement = document.createElement('video');
               videoElement.preload = 'metadata';
               videoElement.src = x;
@@ -121,8 +121,8 @@ const Editor = () => {
     let currentTime = 0
 
     // get the left margin value for the current video from the video's start
-    if (playerRef.current) {
-      currentTime = (Math.round(playerRef.current.getCurrentTime()) > 0 ? Math.round(playerRef.current.getCurrentTime()) - 1 : 0) * 6
+    if (videoDur) {
+      currentTime = (Math.round(videoDur) > 0 ? Math.round(videoDur) - 1 : 0) * 6
     }
 
     // gets the left margin value for all the videos before the current video

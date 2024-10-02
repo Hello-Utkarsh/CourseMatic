@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -16,7 +16,7 @@ export default function Dashboard() {
   const [courseCategory, setCourseCategory] = useState("");
   const navigate = useNavigate();  
   // Function to handle form submission
-  const handleCreateCourse = async (e) => {
+  const handleCreateCourse = async (e: any) => {
     e.preventDefault();
     
     if (courseName && courseDescription && courseCategory) {
@@ -33,7 +33,7 @@ export default function Dashboard() {
         setCourseName("");
         setCourseDescription("");
         setCourseCategory("");
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error adding course: ", error);
         alert("Failed to create course. Please try again.");
       }
@@ -130,7 +130,7 @@ export default function Dashboard() {
                         placeholder="Enter course name"
                         className="bg-gray-700 text-white border-gray-600"
                         value={courseName}
-                        onChange={(e) => setCourseName(e.target.value)}
+                        onChange={(e: any) => setCourseName(e.target.value)}
                       />
                     </div>
                     <div>
@@ -140,7 +140,7 @@ export default function Dashboard() {
                         placeholder="Enter course description"
                         className="w-full h-24 px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
                         value={courseDescription}
-                        onChange={(e) => setCourseDescription(e.target.value)}
+                        onChange={(e: any) => setCourseDescription(e.target.value)}
                       />
                     </div>
                     <div>
@@ -149,7 +149,7 @@ export default function Dashboard() {
                         id="courseCategory"
                         className="w-full px-3 py-2 text-white bg-gray-700 border border-gray-600 rounded-md"
                         value={courseCategory}
-                        onChange={(e) => setCourseCategory(e.target.value)}
+                        onChange={(e: any) => setCourseCategory(e.target.value)}
                       >
                         <option>Select a category</option>
                         <option>Technology</option>
@@ -176,7 +176,7 @@ export default function Dashboard() {
   )
 }
 
-function FeatureCard({ icon, title, description }) {
+function FeatureCard({ icon, title, description }: any) {
   return (
     <Card className="bg-gray-800 border-gray-700">
       <CardHeader>
